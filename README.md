@@ -9,10 +9,10 @@
 
 This workspace manages the suite of plugins listed above, tap each above for details.
 
-## Prerequisites
+## Prerequisites for Contributing
 
-- Node 18+ is recommended
-- [yarn v1](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) is required
+- Node 20+ is recommended
+- [yarn v1](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) is used for dependency hoisting.
 
 In general, when in doubt with what to do, just `npm start`.
 
@@ -31,14 +31,6 @@ At the prompt, enter the name of the new package.
 - Updates the `npm start` interactive display
 - Updates the README here to list the new package
 
-## How to add Angular compatibility to a package
-
-```
-npm run add-angular
-```
-
-At the prompt, enter the name of the package to add an `angular` folder to it with the necessary boilerplate to provide Angular support to the package.
-
 ## How to focus on just 1 package to develop in isolation
 
 ```
@@ -49,15 +41,5 @@ npm start
 - All the demo app's will be updated to isolate that 1 package and for supported IDE's (currently VS Code), the source code will also become isolated in the workspace.
 
 Note: *good to always clean the demo you plan to run after focusing. (You can clean any demo from `npm start` as well)*
-
-## How to publish packages?
-
-```
-npm run publish-packages
-```
-
-- You will be prompted for the package names to publish. Leaving blank and hitting enter will publish them all.
-- You will then be prompted for the version to use. Leaving blank will auto bump the patch version (it also handles prerelease types like alpha, beta, rc, etc. - It even auto tags the corresponding prelease type on npm).
-- You will then be given a brief sanity check 🧠😊
 
 <h3 align="center">Made with ❤️</h3>
