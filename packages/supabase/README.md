@@ -9,7 +9,7 @@ npm install @nativescript/supabase
 ### [Database](https://supabase.io/docs/guides/database)
 
 ```ts
-import {createClient} from '@nativescript/supabase';
+import { createClient } from '@nativescript/supabase';
 
 const client = createClient('supabaseUrl', 'supabaseKey');
 
@@ -25,7 +25,7 @@ const client = createClient('supabaseUrl', 'supabaseKey');
 ### [Authentication](https://supabase.io/docs/guides/auth)
 
 ```ts
-import {createClient} from '@nativescript/supabase';
+import { createClient } from '@nativescript/supabase';
 
 const client = createClient('supabaseUrl', 'supabaseKey');
 
@@ -38,8 +38,8 @@ const response = await client.auth.signUp('email', 'password');
 ### [Storage](https://supabase.io/docs/guides/storage)
 
 ```ts
-import {File as nsFile, knownFolders, path} from '@nativescript/core';
-import {createClient} from '@nativescript/supabase';
+import { File as nsFile, knownFolders, path } from '@nativescript/core';
+import { createClient } from '@nativescript/supabase';
 
  const client = createClient('supabaseUrl', 'supabaseKey');
   
