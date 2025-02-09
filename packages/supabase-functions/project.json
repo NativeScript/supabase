@@ -1,0 +1,60 @@
+{
+  "name": "supabase-functions",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/supabase-functions",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/supabase-functions",
+        "tsConfig": "packages/supabase-functions/tsconfig.json",
+        "packageJson": "packages/supabase-functions/package.json",
+        "main": "packages/supabase-functions/index.ts",
+        "assets": [
+          "packages/supabase-functions/*.md",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/supabase-functions/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts supabase-functions"],
+        "parallel": false
+      },
+      "outputs": ["{workspaceRoot}/dist/packages/supabase-functions"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "dependencies": true
+        },
+        {
+          "target": "build"
+        }
+      ]
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages supabase-functions"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "supabase-postgrest",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/supabase-postgrest",
+  "projectType": "library",
+  "generators": {},
+  "targets": {
+    "build": {
+      "options": {
+        "outputPath": "dist/packages/supabase-postgrest",
+        "tsConfig": "packages/supabase-postgrest/tsconfig.json",
+        "packageJson": "packages/supabase-postgrest/package.json",
+        "main": "packages/supabase-postgrest/index.ts",
+        "assets": [
+          "packages/supabase-postgrest/*.md",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/supabase-postgrest/platforms/",
+            "output": "./platforms/"
+          }
+        ]
+      },
+      "executor": "@nx/js:tsc",
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "dependencies": true
+        }
+      ]
+    },
+    "build.all": {
+      "outputs": ["{workspaceRoot}/dist/packages/supabase-postgrest"],
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts supabase-postgrest"],
+        "parallel": false
+      },
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "dependencies": true
+        },
+        {
+          "target": "build"
+        }
+      ]
+    },
+    "focus": {
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages supabase-postgrest"],
+        "parallel": false
+      },
+      "executor": "nx:run-commands"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

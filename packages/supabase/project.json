@@ -1,0 +1,78 @@
+{
+  "name": "supabase",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/supabase",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "options": {
+        "outputPath": "dist/packages/supabase",
+        "tsConfig": "packages/supabase/tsconfig.json",
+        "packageJson": "packages/supabase/package.json",
+        "main": "packages/supabase/index.d.ts",
+        "assets": [
+          "packages/supabase/*.md",
+          "packages/supabase/index.d.ts",
+          "packages/supabase/auth/index.d.ts",
+          "packages/supabase/functions/index.d.ts",
+          "packages/supabase/postgres/index.d.ts",
+          "packages/supabase/realtime/index.d.ts",
+          "packages/supabase/storage/index.d.ts",
+          "packages/supabase/utils/index.d.ts",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/supabase/platforms/",
+            "output": "./platforms/"
+          }
+        ],
+        "dependsOn": [
+          {
+            "target": "build.all",
+            "projects": "dependencies"
+          }
+        ]
+      }
+    },
+    "build.all": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts supabase"],
+        "parallel": false
+      },
+      "outputs": ["{workspaceRoot}/dist/packages/supabase"],
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "dependencies": true
+        },
+        {
+          "target": "build"
+        }
+      ]
+    },
+    "build.native": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["./build.sh", "cp -R ./dist/* ../../../platforms/ios"],
+        "cwd": "packages/supabase/src-native/apple/NSCSupabase",
+        "parallel": false
+      }
+    },
+    "focus": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages supabase"],
+        "parallel": false
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:eslint",
+      "options": {
+        "lintFilePatterns": ["packages/supabase/**/*.ts"]
+      }
+    }
+  },
+  "tags": []
+}

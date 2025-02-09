@@ -21,7 +21,13 @@
     ],
     "paths": {
       "@demo/shared": ["tools/demo/index.ts"],
-      "@nativescript/*": ["packages/*"]
+      "@nativescript/*": ["packages/*"],
+      "@nativescript/supabase": ["packages/supabase/index.d.ts"],
+      "@nativescript/supabase-storage": ["packages/supabase-storage/index.ts"],
+      "@nativescript/supabase-realtime": ["packages/supabase-realtime/index.ts"],
+      "@nativescript/supabase-postgrest": ["packages/supabase-postgrest/index.ts"],
+      "@nativescript/supabase-gotrue": ["packages/supabase-gotrue/index.ts"],
+      "@nativescript/supabase-functions": ["packages/supabase-functions/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

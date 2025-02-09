@@ -1,11 +1,9 @@
-# @nativescript/\* plugins
-
-```
-npm run setup
-npm start
-```
-
-- @nativescript
+- [@nativescript/supabase](packages/supabase/README.md)
+- [@nativescript/supabase-functions](packages/supabase-functions/README.md)
+- [supabase-gotrue](packages/supabase-gotrue/README.md)
+- [@nativescript/supabase-postgrest](packages/supabase-postgrest/README.md)
+- [@nativescript/supabase-realtime](packages/supabase-realtime/README.md)
+- [@nativescript/supabase-storage](packages/supabase-storage/README.md)
 
 # How to use?
 

@@ -1,0 +1,65 @@
+{
+  "name": "supabase-realtime",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/supabase-realtime",
+  "projectType": "library",
+  "generators": {},
+  "targets": {
+    "build": {
+      "options": {
+        "outputPath": "dist/packages/supabase-realtime",
+        "tsConfig": "packages/supabase-realtime/tsconfig.json",
+        "packageJson": "packages/supabase-realtime/package.json",
+        "main": "packages/supabase-realtime/index.ts",
+        "assets": [
+          "packages/supabase-realtime/*.md",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/supabase-realtime/platforms/",
+            "output": "./platforms/"
+          },
+          {
+            "glob": "**/*",
+            "input": "packages/supabase-realtime/vendor/",
+            "output": "./vendor/"
+          }
+        ]
+      },
+      "executor": "@nx/js:tsc",
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "dependencies": true
+        }
+      ]
+    },
+    "build.all": {
+      "outputs": ["{workspaceRoot}/dist/packages/supabase-realtime"],
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts supabase-realtime"],
+        "parallel": false
+      },
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "dependencies": true
+        },
+        {
+          "target": "build"
+        }
+      ]
+    },
+    "focus": {
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages supabase-realtime"],
+        "parallel": false
+      },
+      "executor": "nx:run-commands"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

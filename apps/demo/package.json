@@ -4,7 +4,13 @@
   "license": "SEE LICENSE IN <your-license-filename>",
   "repository": "<fill-your-repository-here>",
   "dependencies": {
-    "@nativescript/core": "file:../../node_modules/@nativescript/core"
+    "@nativescript/core": "file:../../node_modules/@nativescript/core",
+    "@nativescript/supabase": "file:../../packages/supabase",
+    "@nativescript/supabase-storage": "file:../../packages/supabase-storage",
+    "@nativescript/supabase-realtime": "file:../../packages/supabase-realtime",
+    "@nativescript/supabase-postgrest": "file:../../packages/supabase-postgrest",
+    "supabase-gotrue": "file:../../packages/supabase-gotrue",
+    "@nativescript/supabase-functions": "file:../../packages/supabase-functions"
   },
   "devDependencies": {
     "@nativescript/android": "~8.8.0",

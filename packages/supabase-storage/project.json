@@ -1,0 +1,65 @@
+{
+  "name": "supabase-storage",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/supabase-storage",
+  "projectType": "library",
+  "generators": {},
+  "targets": {
+    "build": {
+      "options": {
+        "outputPath": "dist/packages/supabase-storage",
+        "tsConfig": "packages/supabase-storage/tsconfig.json",
+        "packageJson": "packages/supabase-storage/package.json",
+        "main": "packages/supabase-storage/index.ts",
+        "assets": [
+          "packages/supabase-storage/*.md",
+          "LICENSE",
+          {
+            "glob": "**/*",
+            "input": "packages/supabase-storage/platforms/",
+            "output": "./platforms/"
+          },
+          {
+            "glob": "**/*",
+            "input": "packages/supabase-storage/vendor/",
+            "output": "./vendor/"
+          }
+        ]
+      },
+      "executor": "@nx/js:tsc",
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "dependencies": true
+        }
+      ]
+    },
+    "build.all": {
+      "outputs": ["{workspaceRoot}/dist/packages/supabase-storage"],
+      "options": {
+        "commands": ["node tools/scripts/build-finish.ts supabase-storage"],
+        "parallel": false
+      },
+      "executor": "nx:run-commands",
+      "dependsOn": [
+        {
+          "target": "build.all",
+          "dependencies": true
+        },
+        {
+          "target": "build"
+        }
+      ]
+    },
+    "focus": {
+      "options": {
+        "commands": ["nx g @nativescript/plugin-tools:focus-packages supabase-storage"],
+        "parallel": false
+      },
+      "executor": "nx:run-commands"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

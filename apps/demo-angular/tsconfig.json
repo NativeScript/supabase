@@ -4,7 +4,13 @@
     "paths": {
       "~/*": ["src/*"],
       "@demo/shared": ["tools/demo/index.ts"],
-      "@nativescript/*": ["../../dist/packages/*"]
+      "@nativescript/*": ["../../dist/packages/*"],
+      "@nativescript/supabase": ["../../packages/supabase/index.d.ts"],
+      "@nativescript/supabase-storage": ["../../packages/supabase-storage/index.d.ts"],
+      "@nativescript/supabase-realtime": ["../../packages/supabase-realtime/index.d.ts"],
+      "@nativescript/supabase-postgrest": ["../../packages/supabase-postgrest/index.d.ts"],
+      "supabase-gotrue": ["../../packages/supabase-gotrue/index.d.ts"],
+      "@nativescript/supabase-functions": ["../../packages/supabase-functions/index.d.ts"]
     }
   },
   "files": ["./references.d.ts", "./src/main.ts", "./src/polyfills.ts"],

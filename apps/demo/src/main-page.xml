@@ -6,6 +6,12 @@
     <ScrollView class="h-full">
       <StackLayout>
         <Button text="add a package first" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="supabase" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="supabase-storage" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="supabase-realtime" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="supabase-postgrest" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="supabase-gotrue" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
+<Button text="supabase-functions" tap="{{ viewDemo }}" class="btn btn-primary view-demo"/>
       </StackLayout>
     </ScrollView>
   </StackLayout>

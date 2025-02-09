@@ -6,7 +6,13 @@
     "paths": {
       "~/*": ["src/*"],
       "@demo/shared": ["../../tools/demo/index.ts"],
-      "@nativescript/*": ["../../packages/*"]
+      "@nativescript/*": ["../../packages/*"],
+      "@nativescript/supabase": ["../../packages/supabase/index.d.ts"],
+      "@nativescript/supabase-storage": ["../../packages/supabase-storage/index.d.ts"],
+      "@nativescript/supabase-realtime": ["../../packages/supabase-realtime/index.d.ts"],
+      "@nativescript/supabase-postgrest": ["../../packages/supabase-postgrest/index.d.ts"],
+      "supabase-gotrue": ["../../packages/supabase-gotrue/index.d.ts"],
+      "@nativescript/supabase-functions": ["../../packages/supabase-functions/index.d.ts"]
     }
   }
 }

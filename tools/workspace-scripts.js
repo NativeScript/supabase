@@ -61,6 +61,48 @@ module.exports = {
     // packages
     // build output is always in dist/packages
     '@nativescript': {
+      // @nativescript/supabase
+      supabase: {
+        build: {
+          script: 'nx run supabase:build.all',
+          description: '@nativescript/supabase: Build',
+        },
+      },
+      // @nativescript/supabase-storage
+      'supabase-storage': {
+        build: {
+          script: 'nx run supabase-storage:build.all',
+          description: '@nativescript/supabase-storage: Build',
+        },
+      },
+      // @nativescript/supabase-realtime
+      'supabase-realtime': {
+        build: {
+          script: 'nx run supabase-realtime:build.all',
+          description: '@nativescript/supabase-realtime: Build',
+        },
+      },
+      // @nativescript/supabase-postgrest
+      'supabase-postgrest': {
+        build: {
+          script: 'nx run supabase-postgrest:build.all',
+          description: '@nativescript/supabase-postgrest: Build',
+        },
+      },
+      // @nativescript/supabase-gotrue
+      'supabase-gotrue': {
+        build: {
+          script: 'nx run supabase-gotrue:build.all',
+          description: '@nativescript/supabase-gotrue: Build',
+        },
+      },
+      // @nativescript/supabase-functions
+      'supabase-functions': {
+        build: {
+          script: 'nx run supabase-functions:build.all',
+          description: '@nativescript/supabase-functions: Build',
+        },
+      },
       'build-all': {
         script: 'nx run-many --target=build.all --all',
         description: 'Build all packages',
@@ -71,6 +113,30 @@ module.exports = {
       description: '_____________  Focus (VS Code supported)  _____________',
     },
     focus: {
+      supabase: {
+        script: 'nx run supabase:focus',
+        description: 'Focus on @nativescript/supabase',
+      },
+      'supabase-storage': {
+        script: 'nx run supabase-storage:focus',
+        description: 'Focus on @nativescript/supabase-storage',
+      },
+      'supabase-realtime': {
+        script: 'nx run supabase-realtime:focus',
+        description: 'Focus on @nativescript/supabase-realtime',
+      },
+      'supabase-postgrest': {
+        script: 'nx run supabase-postgrest:focus',
+        description: 'Focus on @nativescript/supabase-postgrest',
+      },
+      'supabase-gotrue': {
+        script: 'nx run supabase-gotrue:focus',
+        description: 'Focus on @nativescript/supabase-gotrue',
+      },
+      'supabase-functions': {
+        script: 'nx run supabase-functions:focus',
+        description: 'Focus on @nativescript/supabase-functions',
+      },
       reset: {
         script: 'nx g @nativescript/plugin-tools:focus-packages',
         description: 'Reset Focus',

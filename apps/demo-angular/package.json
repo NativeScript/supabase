@@ -1,7 +1,13 @@
 {
   "main": "./src/main.ts",
   "dependencies": {
-    "@nativescript/core": "file:../../node_modules/@nativescript/core"
+    "@nativescript/core": "file:../../node_modules/@nativescript/core",
+    "@nativescript/supabase": "file:../../dist/packages/supabase",
+    "@nativescript/supabase-storage": "file:../../dist/packages/supabase-storage",
+    "@nativescript/supabase-realtime": "file:../../dist/packages/supabase-realtime",
+    "@nativescript/supabase-postgrest": "file:../../dist/packages/supabase-postgrest",
+    "supabase-gotrue": "file:../../dist/packages/supabase-gotrue",
+    "@nativescript/supabase-functions": "file:../../dist/packages/supabase-functions"
   },
   "devDependencies": {
     "@nativescript/android": "~8.8.0",
