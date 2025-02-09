@@ -17,8 +17,7 @@ const client = createClient('supabaseUrl', 'supabaseKey');
   const response = await client
       .from('countries')
       .select()
-      .order('name', ascending: true)
-      .execute();
+      .order('name', ascending: true);
 }
 ```
 
