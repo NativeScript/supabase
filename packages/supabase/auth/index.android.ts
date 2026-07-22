@@ -518,15 +518,11 @@ export class Auth {
   }
 
   getSession() {
-    return new Promise<Session>((resolve, reject) => {
+    return new Promise<Session>((resolve) => {
       this.native.getSession(
-        new kotlin.jvm.functions.Function2({
-          invoke(session, error) {
-            if (error) {
-              reject(new Error(error.getMessage()));
-            } else {
-              resolve(Session.fromNative(session));
-            }
+        new kotlin.jvm.functions.Function1({
+          invoke(session: any) {
+            resolve(Session.fromNative(session));
           },
         })
       );
@@ -611,9 +607,9 @@ export class Auth {
         credentials?.data ? JSON.stringify(credentials?.data) : null,
         credentials?.options?.captchaToken ?? null,
         new kotlin.jvm.functions.Function3({
-          invoke(session, error) {
+          invoke(user, session, error) {
             if (error) {
-              reject(new Error(error.getMessage()));
+              reject(new Error(error.getMessage?.() ?? String(error)));
             } else {
               resolve(Session.fromNative(session));
             }

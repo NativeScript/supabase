@@ -849,7 +849,7 @@ class SupabaseAuth internal constructor(val auth: Auth) {
           }
 
           user.data?.let {
-            Json.decodeFromString<JsonObject>(it)
+            this.data = Json.decodeFromString<JsonObject>(it)
           }
         }
         callback(result, null)
